@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/js.js"></script>
+</head>
+
+<body>
+    <h1>주소록</h1>
+    <form action="/add" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <label for="name" class="label-name">이름</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-row">
+            <label for="phone">전화번호</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-row">
+            <label for="birthday">생일</label>
+            <input type="date" id="birthday" name="birthday" required>
+        </div>
+
+        <div class="form-row">
+            <label for="photo">사진</label>
+            <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)">
+        </div>
+
+        <button type="button" onclick="openCamera()">웹캠 촬영</button>
+
+        <video id="camera" width="200" autoplay style="display:none;"></video>
+        <canvas id="canvas" width="200" style="display:none;"></canvas>
+        <img id="photoPreview" src="#" alt="Photo Preview" style="display:none; max-width:200px;" />
+
+        <button type="submit">저장</button>
+    </form>
+
+</body>
+
+</html>
